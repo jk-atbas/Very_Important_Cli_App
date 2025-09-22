@@ -14,7 +14,7 @@ COPY ["Very_Important_Cli_App.csproj", "."]
 COPY ["nuget.config", "."]
 
 # Restore with nuget.config
-RUN dotnet restore "./Very_Important_Cli_App.csproj" --configFile ./nuget.config
+RUN dotnet restore "./Very_Important_Cli_App.csproj" --configfile ./nuget.config
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "./Very_Important_Cli_App.csproj" -c $BUILD_CONFIGURATION -o /app/build

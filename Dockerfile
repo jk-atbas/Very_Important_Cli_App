@@ -11,7 +11,10 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Very_Important_Cli_App.csproj", "."]
-RUN dotnet restore "./Very_Important_Cli_App.csproj"
+COPY ["nuget.config", "."]
+
+# Restore with nuget.config
+RUN dotnet restore "./Very_Important_Cli_App.csproj" --configFile ./nuget.config
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "./Very_Important_Cli_App.csproj" -c $BUILD_CONFIGURATION -o /app/build

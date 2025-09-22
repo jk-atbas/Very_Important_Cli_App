@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Very_Important_Cli_App": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
